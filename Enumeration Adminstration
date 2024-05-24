@@ -1,0 +1,13 @@
+$ Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online     #Installs full RSAT, that includes ADUC also.
+run > dsa.msc                                                                   #starts ADUC            
+run > rsop.msc                                                                  #"Resultant Set of Policy" and select "Group Policy Results Wizard."
+$ Start-Process gpmc.msc                                                        #starts Group Policy management
+gpresult /r
+gpresult /h     #HTML result
+gpupdate
+-----------------------
+Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"              #Get registry key value 
+
+
+
+
