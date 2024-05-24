@@ -6,7 +6,9 @@ gpresult /r
 gpresult /h     #HTML result
 gpupdate
 -----------------------
-Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"              #Get registry key value 
+$ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"              #Get registry key value 
+$ Get-ADComputer -Filter {OperatingSystem -like "*Server*"} -Property Name, OperatingSystem         #Get list of all domain joined servers
+
 
 
 
