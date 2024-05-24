@@ -18,6 +18,7 @@ $ Get-ADReplicationSite -Filter * | Select-Object Name, DistinguishedName, SiteO
 
 
 
+Get-ADComputer -Filter * -Property Name, OperatingSystem, IPv4Address, DistinguishedName, Description, Enabled, LastLogonDate, OperatingSystemVersion, ServicePrincipalNames, SID, CanonicalName, ObjectGUID | Where-Object { $_.DistinguishedName -like '*OU=TUD*' } | Select-Object Name, OperatingSystem, IPv4Address, DistinguishedName, Description, Enabled, LastLogonDate, OperatingSystemVersion, ServicePrincipalNames, SID, CanonicalName, ObjectGUID | Export-Csv -Path "$HOME\Downloads\output.csv" -NoTypeInformation
 
 
 
