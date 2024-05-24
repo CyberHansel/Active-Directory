@@ -19,7 +19,7 @@ $ Get-ADReplicationSite -Filter * | Select-Object Name, DistinguishedName, SiteO
 
 
 
-Get-ADComputer -Filter * -Property Name, OperatingSystem, IPv4Address | Where-Object { $_.DistinguishedName -like '*OU=TUD,*' } | Select-Object Name, OperatingSystem, IPv4Address, DistinguishedName
+
 
 
 
