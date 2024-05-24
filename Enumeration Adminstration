@@ -9,6 +9,22 @@ gpupdate
 $ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"              #Get registry key value 
 $ Get-ADComputer -Filter {OperatingSystem -like "*Server*"} -Property Name, OperatingSystem         #Get list of all domain joined servers
 $ Get-ADComputer -Filter {OperatingSystem -like "*2019*"} -Property Name, OperatingSystem           #List of domain windows 2019 servers
+$ Get-ADComputer -Filter * -Property Name, OperatingSystem, IPv4Address, DistinguishedName | Select-Object Name, OperatingSystem, IPv4Address, DistinguishedName                 #list of all domain joined devices
+$ $ Get-ADComputer -Filter * -Property Name,OperatingSystem,IPv4Address,DistinguishedName | Select-Object Name,OperatingSystem,IPv4Address,DistinguishedName | Export-Csv -Path "$HOME\Downloads\output.csv" -NoTypeInformation  #export to csv
+Get-ADComputer -Filter * -Property Name, OperatingSystem, IPv4Address | Where-Object { $_.DistinguishedName -like '*OU=TUD,*' } | Select-Object Name, OperatingSystem, IPv4Address, DistinguishedName    #Search for "*OU=TUD,*" entries.
+
+$ Get-ADOrganizationalUnit -Filter * -Property Name, DistinguishedName | Select-Object Name, DistinguishedName                #Get list of domain OU
+$ Get-ADReplicationSite -Filter * | Select-Object Name, DistinguishedName, SiteObjectGuid, Location                           #get list of all sites
+
+
+
+
+Get-ADComputer -Filter * -Property Name, OperatingSystem, IPv4Address | Where-Object { $_.DistinguishedName -like '*OU=TUD,*' } | Select-Object Name, OperatingSystem, IPv4Address, DistinguishedName
+
+
+
+
+
 
 
 
