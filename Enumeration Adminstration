@@ -8,6 +8,7 @@ gpupdate
 -----------------------
 $ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"              #Get registry key value 
 $ Get-ADComputer -Filter {OperatingSystem -like "*Server*"} -Property Name, OperatingSystem         #Get list of all domain joined servers
+$ Get-ADComputer -Filter {OperatingSystem -like "*2019*"} -Property Name, OperatingSystem           #List of domain windows 2019 servers
 
 
 
