@@ -21,6 +21,13 @@ Get-ADComputer -Filter * -Property Name, OperatingSystem, IPv4Address, Distingui
 -----------
 $ Get-ADOrganizationalUnit -Filter * -Property Name, DistinguishedName | Select-Object Name, DistinguishedName                #Get list of domain OU
 $ Get-ADReplicationSite -Filter * | Select-Object Name, DistinguishedName, SiteObjectGuid, Location                           #get list of all sites
+-----------
+
+Finding Users with AdminCount = 1 (all users inside AdminSDHolder > Security)
+$ Get-ADUser -Filter {AdminCount -eq 1} -Properties AdminCount | Select-Object Name, SamAccountName
+
+Finding Groups with AdminCount = 1
+$ Get-ADGroup -Filter {AdminCount -eq 1} -Properties AdminCount | Select-Object Name, SamAccountName
 
 
 
